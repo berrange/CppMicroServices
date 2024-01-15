@@ -101,13 +101,14 @@ target_include_directories(${us_logservice_test_exe_name} PRIVATE
   ${CppMicroServices_SOURCE_DIR}/compendium/LogServiceImpl/src
   ${CppMicroServices_SOURCE_DIR}/third_party/googletest/googletest/include
   ${CppMicroServices_SOURCE_DIR}/third_party/googletest/googlemock/include
-  ${CppMicroServices_SOURCE_DIR}/third_party/spdlog/include
   )
 
 # Needed for clock_gettime with glibc < 2.17
 if(UNIX AND NOT APPLE)
   target_link_libraries(${us_logservice_test_exe_name} PRIVATE rt)
 endif()
+
+target_link_libraries(${us_logservice_test_exe_name} PRIVATE spdlog::spdlog)
 
 # Run the GTest EXE from ctest.
 add_test(NAME ${us_logservice_test_exe_name}
