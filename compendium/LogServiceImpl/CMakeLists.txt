@@ -1,4 +1,7 @@
 # sources and headers
+
+find_package(spdlog)
+
 set(_srcs
   src/LogServiceImpl.cpp
   src/LoggerFactoryImpl.cpp
@@ -23,6 +26,8 @@ endif()
 if(CMAKE_THREAD_LIBS_INIT)
   list(APPEND _link_libraries ${CMAKE_THREAD_LIBS_INIT})
 endif()
+
+list(APPEND _link_libraries spdlog::spdlog)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/resources/manifest.json.in
 	       ${CMAKE_CURRENT_BINARY_DIR}/resources/manifest.json)
@@ -60,7 +65,6 @@ target_include_directories(LogService PRIVATE
   ${CppMicroServices_BINARY_DIR}/framework/include
   ${CppMicroServices_SOURCE_DIR}/compendium/LogService/include
   ${CppMicroServices_BINARY_DIR}/compendium/LogService/include
-  ${CppMicroServices_SOURCE_DIR}/third_party/spdlog/include
   ${CppMicroServices_SOURCE_DIR}/third_party/googletest/googletest/include
   ${CppMicroServices_SOURCE_DIR}/third_party/googletest/googlemock/include
   )
