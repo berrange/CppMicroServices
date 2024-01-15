@@ -24,7 +24,7 @@
 
 #include "HttpServletResponsePrivate.h"
 
-#include "civetweb/civetweb.h"
+#include "civetweb.h"
 
 #include <cassert>
 #include <functional>
