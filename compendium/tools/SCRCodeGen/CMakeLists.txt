@@ -2,8 +2,7 @@ set(_srcs
     ComponentInfo.cpp
     Main.cpp
     ManifestParserImpl.cpp
-    Util.cpp
-      ../../../third_party/jsoncpp.cpp)
+    Util.cpp)
 
 set(_private_headers
     ComponentCallbackGenerator.hpp
@@ -28,6 +27,8 @@ add_executable(${US_SCRCODEGEN_EXECUTABLE_TARGET} ${_srcs} ${_private_headers})
 if (US_BUILD_TESTING)
   target_compile_definitions(${US_SCRCODEGEN_EXECUTABLE_TARGET} PRIVATE USING_GTEST)
 endif()
+
+target_link_libraries(${US_SCRCODEGEN_EXECUTABLE_TARGET} jsoncpp_lib)
 
 set_property(TARGET ${US_SCRCODEGEN_EXECUTABLE_TARGET} PROPERTY OUTPUT_NAME ${US_SCRCODEGEN_EXECUTABLE_OUTPUT_NAME})
 

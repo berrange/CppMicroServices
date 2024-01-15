@@ -383,6 +383,8 @@ if(US_USE_SYSTEM_BOOST)
     find_package(Boost 1.74.0 REQUIRED)
 endif()
 
+find_package(jsoncpp)
+
 #-----------------------------------------------------------------------------
 # Testing configuration
 #-----------------------------------------------------------------------------
