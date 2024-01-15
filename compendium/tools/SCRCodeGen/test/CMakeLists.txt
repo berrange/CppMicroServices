@@ -22,7 +22,6 @@ endif()
 set(_scrcodegen_tests
   ../ComponentInfo.cpp
   ../ManifestParserImpl.cpp
-  ../../../../third_party/jsoncpp.cpp
   ../Util.cpp
   main.cpp
   TestCodeGenerator.cpp
@@ -55,6 +54,7 @@ target_link_libraries(${scrcodegen_test_exe_name}
 		${GTEST_BOTH_LIBRARIES}
 		${GMOCK_BOTH_LIBRARIES}
                 CppMicroServices
+		jsoncpp_lib
 )
 
 # tests can be configured to run using add_test or GTEST_ADD_TEST (https://cmake.org/cmake/help/v3.0/module/FindGTest.html)
