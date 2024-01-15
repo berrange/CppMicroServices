@@ -12,7 +12,7 @@ if(US_COMPILER_CLANG OR US_COMPILER_APPLE_CLANG)
   add_compile_options(-Wno-error=unneeded-internal-declaration)
 endif()
 
-set(srcs ResourceCompiler.cpp ../../third_party/miniz.c ../../third_party/jsoncpp.cpp)
+set(srcs ResourceCompiler.cpp ../../third_party/miniz.c)
 
 if(MINGW)
   # Suppress warnings for specific files
@@ -28,6 +28,7 @@ endif()
 
 add_executable(${US_RCC_EXECUTABLE_TARGET} ${srcs})
 set_property(TARGET ${US_RCC_EXECUTABLE_TARGET} PROPERTY OUTPUT_NAME ${US_RCC_EXECUTABLE_OUTPUT_NAME})
+target_link_libraries(${US_RCC_EXECUTABLE_TARGET} jsoncpp_lib)
 if(WIN32)
     target_link_libraries(${US_RCC_EXECUTABLE_TARGET} Shlwapi)
 endif()

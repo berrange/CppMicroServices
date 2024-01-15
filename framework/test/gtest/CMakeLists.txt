@@ -108,7 +108,6 @@ set(_additional_srcs
 
 set(_third_party_srcs 
   ../../../third_party/miniz.c
-  ../../../third_party/jsoncpp.cpp
 )
 
 if(MINGW)
@@ -154,6 +153,7 @@ endif()
 target_link_libraries(${us_gtest_test_exe_name} ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(${us_gtest_test_exe_name} ${GMOCK_BOTH_LIBRARIES})
 target_link_libraries(${us_gtest_test_exe_name} ${Framework_TARGET} usLogService)
+target_link_libraries(${us_gtest_test_exe_name} jsoncpp_lib)
 
 # Needed for clock_gettime with glibc < 2.17
 if(UNIX AND NOT APPLE)
