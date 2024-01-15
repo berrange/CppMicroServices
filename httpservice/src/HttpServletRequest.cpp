@@ -25,7 +25,7 @@
 
 #include "cppmicroservices/httpservice/ServletContext.h"
 
-#include "civetweb/civetweb.h"
+#include "civetweb.h"
 
 #include <cassert>
 #include <cstring>
@@ -86,7 +86,7 @@ namespace cppmicroservices
         }
 
         // get the uri
-        std::string uri = mg_get_request_info(m_Connection)->uri;
+        std::string uri = mg_get_request_info(m_Connection)->local_uri;
         pos = uri.find_first_of('?');
         m_Uri = uri.substr(0, pos);
 

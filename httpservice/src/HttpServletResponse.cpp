@@ -26,7 +26,7 @@
 #include "cppmicroservices/httpservice/HttpServletRequest.h"
 #include "cppmicroservices/httpservice/ServletContext.h"
 
-#include "civetweb/civetweb.h"
+#include "civetweb.h"
 
 #include <ctime>
 #include <memory>

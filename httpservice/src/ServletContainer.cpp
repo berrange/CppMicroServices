@@ -37,7 +37,7 @@
 #include "cppmicroservices/Bundle.h"
 #include "cppmicroservices/BundleContext.h"
 
-#include "civetweb/CivetServer.h"
+#include "CivetServer.h"
 
 #include <cassert>
 #include <memory>
@@ -141,8 +141,8 @@ namespace cppmicroservices
     void
     ServletContainerPrivate::Start()
     {
-        int port = 0;
-        int sslPort = 0;
+        struct mg_server_ports portinfo[4];
+        int nports;
         {
             Lock l(m_Mutex);
             US_UNUSED(l);
@@ -157,10 +157,14 @@ namespace cppmicroservices
                 m_Server.reset();
                 return;
             }
-            mg_get_ports(serverContext, 1, &port, &sslPort);
+            nports = mg_get_server_ports(serverContext, 4, portinfo);
         }
 
-        std::cout << "Servlet Container listening on http://localhost:" << port << std::endl;
+        for (int i = 0; i < nports; i++) {
+          std::cout << "Servlet Container listening on " <<
+            (portinfo[i].is_ssl ? "https": "http") << "://localhost:" <<
+            portinfo[i].port << std::endl;
+        }
         m_ServletTracker.Open();
     }
 
