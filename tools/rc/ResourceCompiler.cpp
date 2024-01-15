@@ -37,11 +37,13 @@
 #include <utility>
 #include <vector>
 
-#include <nowide/args.hpp>
-#include <nowide/fstream.hpp>
+#include <boost/nowide/args.hpp>
+#include <boost/nowide/fstream.hpp>
 
 #include "optionparser.h"
 #include "json/json.h"
+
+using namespace boost;
 
 // ---------------------------------------------------------------------------------
 // --------------------------    PLATFORM SPECIFIC CODE    -------------------------
