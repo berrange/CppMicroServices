@@ -15,7 +15,7 @@ CMakeLexer.tokens["args"].append(('(\\$<)(.+?)(>)',
 
 # Monkey patch for sphinx generating invalid content for qcollectiongenerator
 # https://bitbucket.org/birkenfeld/sphinx/issue/1435/qthelp-builder-should-htmlescape-keywords
-from sphinx.util.pycompat import htmlescape
+from html import escape as htmlescape
 from sphinx.builders.qthelp import QtHelpBuilder
 old_build_keywords = QtHelpBuilder.build_keywords
 def new_build_keywords(self, title, refs, subitems):
