@@ -129,6 +129,7 @@ target_link_libraries(${us_declarativeservices_bench_test_exe_name}
   usLogService
   usAsyncWorkService
   gtest
+  benchmark
   benchmark_main
   util
 )
