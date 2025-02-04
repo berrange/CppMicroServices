@@ -441,6 +441,7 @@ if(US_BUILD_TESTING)
 
   if(US_USE_SYSTEM_GTEST)
     find_package(GTest REQUIRED)
+    set(GMOCK_BOTH_LIBRARIES gmock gmock_main)
   else()
     # This keeps GTest CMake variables hidden from users unless they explicitly want to view/modify them.
     us_cache_var(BUILD_GMOCK ON BOOL "Build GMock" ADVANCED FORCE)
