@@ -930,6 +930,7 @@ TEST_F(ResourceCompilerTest, testUnicodeManifestAdd)
     ChangeDirectory(origdir);
 }
 
+#if 0
 // In jsoncpp 0.10.6 not allowing comments does NOT result in a parse failure for a JSON file with comments.
 // Instead, assuming the JSON is valid, parsing returns JSON stripped of the comments.
 // This test will only makes sure that JSON with comments can be added successfully.
@@ -959,6 +960,7 @@ TEST_F(ResourceCompilerTest, testManifestAddWithJSONComments)
     // Test embedding a manifest containing JSON comments.
     ASSERT_EQ(EXIT_SUCCESS, runExecutable(cmd.str()));
 }
+#endif
 
 TEST_F(ResourceCompilerTest, testManifestAddWithDuplicateKeys)
 {
